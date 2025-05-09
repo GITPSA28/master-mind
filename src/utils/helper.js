@@ -12,7 +12,7 @@ export const COLOURS = {
   lightBorder: "slate-300",
   darkBorder: "slate-500",
   darkSlate: "slate-500",
-  black: "white",
+  black: "black",
 };
 export const COLOURCODE = {
   0: "empty",
