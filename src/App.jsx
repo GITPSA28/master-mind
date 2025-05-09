@@ -1,42 +1,31 @@
 // import { useState } from 'react'
 import "./App.css";
+import CodeRow from "./UI/CodeRow";
+import ColourPeg from "./UI/ColourPeg";
+import HelperPeg from "./UI/HelperPeg";
+import SecretCodeRow from "./UI/SecretCodeRow";
 
 function App() {
   return (
     <>
-      <div className="app mx-auto flex flex-col max-w-md">
-        <nav className="text-gray-800 flex justify-between items-center px-6 py-3 border-b-gray-400 border-b-1 ">
+      <div className="app mx-auto flex max-w-md flex-col">
+        <nav className="flex items-center justify-between border-b-1 border-b-gray-400 px-6 py-3 text-gray-800">
           <div id="streaks">18</div>
           <div id="logo">
-            <p className="font-bold text-2xl">Code Chase</p>
+            <p className="text-2xl font-bold">Code Chase</p>
           </div>
           <div className="flex gap-4">
             <div id="help-toggle">help</div>
             <div id="options-toggle">options</div>
           </div>
         </nav>
-        <main className="flex flex-col items-center mt-4">
+        <main className="mt-4 flex flex-col items-center">
           <div
             id="main-container"
-            className="w-10/12 border-1 p-5 flex flex-col gap-0.5 border-gray-300 rounded-xl bg-gray-50"
+            className="flex w-10/12 flex-col gap-0.5 rounded-xl border-1 border-gray-300 bg-gray-50 p-5"
           >
-            <div id="secret-code" className="bg-slate-600 rounded-xl  py-2">
-              <div id="codes" className="flex justify-center gap-2">
-                <div className="w-9 h-9 flex items-center justify-center text-l text-gray-100 rounded-full border-2 border-slate-400 bg-slate-500">
-                  ?
-                </div>
-                <div className="w-9 h-9 flex items-center justify-center text-l text-gray-100 rounded-full border-2 border-slate-400 bg-slate-500">
-                  ?
-                </div>
-                <div className="w-9 h-9 flex items-center justify-center text-l text-gray-100 rounded-full border-2 border-slate-400 bg-slate-500">
-                  ?
-                </div>
-                <div className="w-9 h-9 flex items-center justify-center text-l text-gray-100 rounded-full border-2 border-slate-400 bg-slate-500">
-                  ?
-                </div>
-              </div>
-            </div>
-            <div id="current-state" className="flex justify-between px-1 my-1">
+            <SecretCodeRow />
+            <div id="current-state" className="my-1 flex justify-between px-1">
               <p>
                 Attempt : <strong>#</strong>/10
               </p>
@@ -45,81 +34,48 @@ function App() {
               </p>
             </div>
 
-            <div
-              id="guess-container"
-              className="flex justify-around items-center  p-2 rounded-xl"
-            >
-              <div id="codes" className="flex justify-center gap-2 ">
-                <div className="w-9 h-9 flex items-center justify-center text-2xl rounded-full border-2 border-slate-500 bg-red-500"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl rounded-full border-2 border-slate-500 bg-yellow-500"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl rounded-full border-2 border-slate-500 bg-green-500"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl rounded-full border-2 border-slate-500 bg-blue-500"></div>
-              </div>
-              <div id="pegs" className="grid grid-cols-2 gap-1">
-                <div className="w-3 h-3 border-1 bg-red-500 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-50 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-50 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-              </div>
-            </div>
-            <div
-              id="guess-container"
-              className="flex justify-around items-center bg-slate-200 p-2 rounded-xl"
-            >
-              <div id="codes" className="flex justify-center gap-2 ">
-                <div className="w-9 h-9 flex items-center justify-center text-2xl text-gray-100 rounded-full border-2 border-slate-400 bg-slate-100"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl text-gray-100 rounded-full border-2 border-slate-400 bg-slate-100"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl text-gray-100 rounded-full border-2 border-slate-400 bg-slate-100"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl text-gray-100 rounded-full border-2 border-slate-400 bg-slate-100"></div>
-              </div>
-              <div id="pegs" className="grid grid-cols-2 gap-1">
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-              </div>
-            </div>
-            <div
-              id="guess-container"
-              className="flex justify-around items-center  p-2 rounded-xl"
-            >
-              <div id="codes" className="flex justify-center gap-2 ">
-                <div className="w-9 h-9 flex items-center justify-center text-2xl text-gray-100 rounded-full border-2 border-slate-400 bg-slate-100"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl text-gray-100 rounded-full border-2 border-slate-400 bg-slate-100"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl text-gray-100 rounded-full border-2 border-slate-400 bg-slate-100"></div>
-                <div className="w-9 h-9 flex items-center justify-center text-2xl text-gray-100 rounded-full border-2 border-slate-400 bg-slate-100"></div>
-              </div>
-              <div id="pegs" className="grid grid-cols-2 gap-1">
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-                <div className="w-3 h-3 border-1 bg-gray-500 border-gray-600 rounded-full"></div>
-              </div>
-            </div>
+            <CodeRow codes={[1, 2, 3, 5]} states={[1, 1, 2, 0]} />
+            <CodeRow activeIndex={0} currentRow={true} />
           </div>
           <div
             id="inputs"
-            className="mt-3 w-10/12 sm:w-full flex justify-center items-center"
+            className="mt-3 flex w-10/12 items-center justify-center sm:w-11/12"
           >
             <div
               id="codes"
-              className="mx-2 w-2/4 flex flex-wrap items-center justify-center gap-2 "
+              className="mx-2 flex w-4/6 flex-wrap items-center justify-center gap-2"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-2xl rounded-full border-2 border-gray-600 bg-red-500"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10  flex items-center justify-center text-2xl rounded-full border-2 border-gray-600 bg-green-500"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10  flex items-center justify-center text-2xl rounded-full border-2 border-gray-600 bg-blue-500"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10  flex items-center justify-center text-2xl rounded-full border-2 border-gray-600 bg-yellow-500"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10  flex items-center justify-center text-2xl rounded-full border-2 border-gray-600 bg-orange-500"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10  flex items-center justify-center text-2xl rounded-full border-2 border-gray-600 bg-pink-500"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10  flex items-center justify-center text-2xl rounded-full border-2 border-gray-600 bg-white"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10  flex items-center justify-center text-2xl rounded-full border-2 border-gray-600 bg-gray-500"></div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-600 bg-red-500 text-lg text-white sm:h-10 sm:w-10">
+                1
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-600 bg-green-500 text-lg text-white sm:h-10 sm:w-10">
+                2
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-600 bg-blue-500 text-lg text-white sm:h-10 sm:w-10">
+                3
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-600 bg-yellow-400 text-lg text-white sm:h-10 sm:w-10">
+                4
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-600 bg-orange-500 text-lg text-white sm:h-10 sm:w-10">
+                5
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-600 bg-violet-500 text-lg text-white sm:h-10 sm:w-10">
+                6
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-600 bg-white text-lg text-gray-800 sm:h-10 sm:w-10">
+                7
+              </div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-600 bg-gray-500 text-lg text-white sm:h-10 sm:w-10">
+                8
+              </div>
             </div>
 
             <div id="input-btn" className="flex flex-col gap-2">
-              <button className="text-white bg-green-500 h-fit px-2 py-1 sm:px-4 sm:py-2 rounded-md">
+              <button className="h-fit rounded-md bg-green-500 px-2 py-1 text-white sm:px-4 sm:py-2">
                 Check
               </button>
-              <button className="text-white flex items-center justify-center bg-red-500 h-fit px-2 py-1 sm:px-4 sm:py-2 rounded-md">
+              <button className="flex h-fit items-center justify-center rounded-md bg-red-500 px-2 py-1 text-white sm:px-4 sm:py-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -139,6 +95,16 @@ function App() {
           </div>
         </main>
       </div>
+      <footer className="mx-auto mt-8 w-fit text-xs text-gray-500">
+        Developed by{" "}
+        <a
+          className="text-gray-800 underline hover:text-blue-600"
+          target="_blank"
+          href="https://linkedin.com/in/sunilaravind"
+        >
+          PSA 28
+        </a>
+      </footer>
     </>
   );
 }
