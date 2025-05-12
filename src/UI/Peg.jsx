@@ -6,13 +6,15 @@ function Peg({
   children,
   textSize = "lg",
   textColor = "white",
+  styleAddOn = " ",
+  onClick,
 }) {
-  let style = `flex h-${size} w-${size} items-center justify-center rounded-full border-${borderSize} bg-${color} border-${border} text-${textSize} text-${textColor}`;
-
+  let style = `select-none ${onClick ? "cursor-pointer" : ""} flex h-${size} w-${size} items-center justify-center rounded-full border-${borderSize} bg-${color} border-${border} text-${textSize} text-${textColor}`;
+  style += " " + styleAddOn;
   return (
-    <>
-      <div className={style}>{children}</div>
-    </>
+    <div onClick={onClick} className={style}>
+      {children}
+    </div>
   );
 }
 
