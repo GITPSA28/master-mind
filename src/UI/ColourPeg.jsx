@@ -1,19 +1,18 @@
-import { getColour } from "../utils/helper";
+import { COLOURCODE } from "../utils/helper";
 import Peg from "./Peg";
 
 function ColourPeg({
   code,
-  size = 9,
+  size = "large",
   active = false,
   border = "darkBorder",
   text,
-  textColor = "white",
   styleAddOn,
   onClick,
 }) {
-  const color = getColour(code);
-  let borderColor = code > 0 ? getColour(border) : getColour("lightBorder");
-
+  const color = COLOURCODE[code];
+  let borderColor = code > 0 ? border : "lightBorder";
+  styleAddOn += " text-white";
   if (active) borderColor = "black";
   return (
     <Peg
@@ -21,8 +20,6 @@ function ColourPeg({
       color={color}
       size={size}
       border={borderColor}
-      textSize="lg"
-      textColor={textColor}
       onClick={onClick}
     >
       {text}

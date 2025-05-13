@@ -2,15 +2,15 @@ import Button from "../UI/Button";
 import ColourPeg from "../UI/ColourPeg";
 
 function Inputs({ onCodeInput, onEnter, onBackSpace, inputCodes }) {
-  const size = 9;
+  const size = "large";
   return (
     <div
       id="inputs"
-      className="mt-3 flex w-10/12 items-center justify-center rounded-2xl border-1 border-gray-300 p-2"
+      className="flex items-center justify-center w-10/12 p-2 mt-3 border-gray-300 rounded-2xl border-1"
     >
       <div
         id="codes"
-        className="mx-2 flex w-3/6 flex-wrap items-center justify-center gap-2"
+        className="flex flex-wrap items-center justify-center w-3/6 gap-2 mx-2"
       >
         {inputCodes.map((code) => (
           <ColourPeg

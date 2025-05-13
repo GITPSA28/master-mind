@@ -1,15 +1,20 @@
+import {
+  BG_COLOURS,
+  BORDER_COLOURS,
+  BORDER_SIZE,
+  PEG_SIZE,
+} from "../utils/helper";
+
 function Peg({
-  color = "slate-100",
-  size = 9,
+  color = "gray",
+  size = "large",
   border,
-  borderSize = 2,
+  borderSize = "normal",
   children,
-  textSize = "lg",
-  textColor = "white",
   styleAddOn = " ",
   onClick,
 }) {
-  let style = `select-none ${onClick ? "cursor-pointer" : ""} flex h-${size} w-${size} items-center justify-center rounded-full border-${borderSize} bg-${color} border-${border} text-${textSize} text-${textColor}`;
+  let style = `select-none ${onClick ? "cursor-pointer" : ""} flex ${PEG_SIZE[size]} items-center justify-center rounded-full ${BORDER_SIZE[borderSize]} ${BG_COLOURS[color]} ${BORDER_COLOURS[border]} `;
   style += " " + styleAddOn;
   return (
     <div onClick={onClick} className={style}>
